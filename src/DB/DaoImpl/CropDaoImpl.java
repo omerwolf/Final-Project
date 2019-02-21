@@ -137,11 +137,71 @@ public class CropDaoImpl implements CropDao {
 
     @Override
     public void delete(int id) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            preparedStatement = connection.prepareStatement("DELETE FROM `crop type` WHERE crop_id = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
 
+            System.out.println("DELETE FROM `crop type` WHERE crop_id = ?");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
+
 
     @Override
     public void update(Crop crop, int id) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
 
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            preparedStatement = connection.prepareStatement("UPDATE `crop type` SET " +
+                    "crop_name = ? WHERE crop_id = ?");
+
+            preparedStatement.setString(1, crop.getName());
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+            System.out.println("UPDATE `crop type` SET " +
+                    "crop_name = ? WHERE crop_id = ?");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
