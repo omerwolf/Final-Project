@@ -14,14 +14,14 @@ public class Main {
     public static void main(String[] args) {
         CropDao cdi = new CropDaoImpl();
         /**Insert a new record**/
-        //Crop crop = new Crop("Corn",4);
-        //cdi.insert(crop);
+        Crop crop = new Crop("Tomato",cdi.generateUniqueId());
+        cdi.insert(crop);
         /**Select by id**/
         //Crop crop = cdi.selectById(6);
         //System.out.println(crop.getId() + ", " + crop.getName());
 
         /**Delete by id**/
-        //cdi.delete(1);
+        //cdi.delete(6);
 
         /**Update **/
         //Crop cropUpdate = new Crop("BBB",2);
@@ -33,13 +33,10 @@ public class Main {
             System.out.println(c.getId() + ", " + c.getName());
         }
         /**Insert all**/
-        String[] cropsName = {"Avocado", "Coffee Arabica", "Coffee Robusta", "Cotton", "Corn"};
-        cdi.insertAll(cropsName);
+        //String[] cropsName = {"Avocado", "Coffee Arabica", "Coffee Robusta", "Cotton", "Corn"};
+        //cdi.insertAll(cropsName);
 
-        crops = cdi.selectAll();
-        for (Crop c : crops) {
-            System.out.println(c.getId() + ", " + c.getName());
+
         }
 
     }
-}
