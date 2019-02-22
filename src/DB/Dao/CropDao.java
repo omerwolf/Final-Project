@@ -15,4 +15,8 @@ public interface CropDao {
     void delete(int id);
 
     void update(Crop crop, int id);
+
+    int generateUniqueId();
+
+    void insertAll(String[] cropsName);
 }

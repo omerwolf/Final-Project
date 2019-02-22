@@ -6,6 +6,7 @@ import DB.Util.ConnectionConfiguration;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 // Hello World
 public class CropDaoImpl implements CropDao {
@@ -203,5 +204,64 @@ public class CropDaoImpl implements CropDao {
                 }
             }
         }
+    }
+    @Override
+    public int generateUniqueId() {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        int emptySpace = 1;
+        try {
+            connection = ConnectionConfiguration.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM `crop type`");
+
+
+
+            while (resultSet.next()) {
+                emptySpace = resultSet.getInt("crop_id") + 1;
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return emptySpace;
+    }
+
+    @Override
+    public void insertAll(String[] cropsName) {
+        Arrays.sort(cropsName);
+
+        for(String cropName : cropsName) {
+            Crop crop = new Crop();
+            crop.setName(cropName);
+            crop.setId(this.generateUniqueId());
+            this.insert(crop);
+
+        }
+        System.out.println("insertAll finished!");
     }
 }

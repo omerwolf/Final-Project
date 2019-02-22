@@ -21,17 +21,25 @@ public class Main {
         //System.out.println(crop.getId() + ", " + crop.getName());
 
         /**Delete by id**/
-        //cdi.delete(3);
+        //cdi.delete(1);
 
         /**Update **/
-        Crop cropUpdate = new Crop("BBB",2);
-        cdi.update(cropUpdate,2);
+        //Crop cropUpdate = new Crop("BBB",2);
+        //cdi.update(cropUpdate,2);
 
         /**Select all**/
         List<Crop> crops = cdi.selectAll();
-        for(Crop c : crops) {
-            System.out.println(c.getId()+", "+c.getName());
+        for (Crop c : crops) {
+            System.out.println(c.getId() + ", " + c.getName());
         }
-    }
+        /**Insert all**/
+        String[] cropsName = {"Avocado", "Coffee Arabica", "Coffee Robusta", "Cotton", "Corn"};
+        cdi.insertAll(cropsName);
 
+        crops = cdi.selectAll();
+        for (Crop c : crops) {
+            System.out.println(c.getId() + ", " + c.getName());
+        }
+
+    }
 }
