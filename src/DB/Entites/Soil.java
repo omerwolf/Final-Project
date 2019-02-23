@@ -4,20 +4,25 @@ public class Soil {
     //Members
     private int id;
     private String name;
-    private int nPrecent;
-    private int pPrecent;
-    private int kPrecent;
-    private int somDecompHigh;
-    private int somDecompModerate;
-    private int somDecompLow;
+    private double nPrecent;
+    private double pPrecent;
+    private double kPrecent;
+    private double somDecompHigh;
+    private double somDecompModerate;
+    private double somDecompLow;
     private int baseDressingStrategy;
-    private int rainEffect;
+    private double rainEffect;
     private int defualtCEC;
-    private int defualtBulkDensity;
+    private int lowerCEC;
+    private int upperCEC;
+    private double defualtBulkDensity;
 
     //Constructor
-    public Soil(int id, String name, int nPrecent, int pPrecent, int kPrecent, int somDecompHigh, int somDecompModerate,
-                int somDecompLow, int baseDressingStrategy, int rainEffect, int defualtCEC, int defualtBulkDensity) {
+    public Soil(){}
+
+    public Soil(int id, String name, double nPrecent, double pPrecent, double kPrecent, double somDecompHigh,
+                double somDecompModerate, double somDecompLow, int baseDressingStrategy, double rainEffect,
+                int defualtCEC, int lowerCEC, int upperCEC, double defualtBulkDensity) {
         this.id = id;
         this.name = name;
         this.nPrecent = nPrecent;
@@ -29,6 +34,8 @@ public class Soil {
         this.baseDressingStrategy = baseDressingStrategy;
         this.rainEffect = rainEffect;
         this.defualtCEC = defualtCEC;
+        this.lowerCEC = lowerCEC;
+        this.upperCEC = upperCEC;
         this.defualtBulkDensity = defualtBulkDensity;
     }
 
@@ -48,51 +55,51 @@ public class Soil {
         this.name = name;
     }
 
-    public int getnPrecent() {
+    public double getnPrecent() {
         return nPrecent;
     }
 
-    public void setnPrecent(int nPrecent) {
+    public void setnPrecent(double nPrecent) {
         this.nPrecent = nPrecent;
     }
 
-    public int getpPrecent() {
+    public double getpPrecent() {
         return pPrecent;
     }
 
-    public void setpPrecent(int pPrecent) {
+    public void setpPrecent(double pPrecent) {
         this.pPrecent = pPrecent;
     }
 
-    public int getkPrecent() {
+    public double getkPrecent() {
         return kPrecent;
     }
 
-    public void setkPrecent(int kPrecent) {
+    public void setkPrecent(double kPrecent) {
         this.kPrecent = kPrecent;
     }
 
-    public int getSomDecompHigh() {
+    public double getSomDecompHigh() {
         return somDecompHigh;
     }
 
-    public void setSomDecompHigh(int somDecompHigh) {
+    public void setSomDecompHigh(double somDecompHigh) {
         this.somDecompHigh = somDecompHigh;
     }
 
-    public int getSomDecompModerate() {
+    public double getSomDecompModerate() {
         return somDecompModerate;
     }
 
-    public void setSomDecompModerate(int somDecompModerate) {
+    public void setSomDecompModerate(double somDecompModerate) {
         this.somDecompModerate = somDecompModerate;
     }
 
-    public int getSomDecompLow() {
+    public double getSomDecompLow() {
         return somDecompLow;
     }
 
-    public void setSomDecompLow(int somDecompLow) {
+    public void setSomDecompLow(double somDecompLow) {
         this.somDecompLow = somDecompLow;
     }
 
@@ -104,11 +111,11 @@ public class Soil {
         this.baseDressingStrategy = baseDressingStrategy;
     }
 
-    public int getRainEffect() {
+    public double getRainEffect() {
         return rainEffect;
     }
 
-    public void setRainEffect(int rainEffect) {
+    public void setRainEffect(double rainEffect) {
         this.rainEffect = rainEffect;
     }
 
@@ -120,11 +127,27 @@ public class Soil {
         this.defualtCEC = defualtCEC;
     }
 
-    public int getDefualtBulkDensity() {
+    public int getLowerCEC() {
+        return lowerCEC;
+    }
+
+    public void setLowerCEC(int lowerCEC) {
+        this.lowerCEC = lowerCEC;
+    }
+
+    public int getUpperCEC() {
+        return upperCEC;
+    }
+
+    public void setUpperCEC(int upperCEC) {
+        this.upperCEC = upperCEC;
+    }
+
+    public double getDefualtBulkDensity() {
         return defualtBulkDensity;
     }
 
-    public void setDefualtBulkDensity(int defualtBulkDensity) {
+    public void setDefualtBulkDensity(double defualtBulkDensity) {
         this.defualtBulkDensity = defualtBulkDensity;
     }
 }

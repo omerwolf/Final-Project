@@ -20,4 +20,5 @@ public interface SoilDao {
 
     void insertAll(String[] soilsName);
 
+    void autoInsertAll();
 }

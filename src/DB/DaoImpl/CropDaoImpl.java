@@ -264,4 +264,11 @@ public class CropDaoImpl implements CropDao {
         }
         System.out.println("insertAll finished!");
     }
+
+    @Override
+    public void autoInsertAll() {
+        String[] cropsName = {"Avocado", "Coffee Arabica", "Coffee Robusta", "Cotton", "Corn", "Tomato"};
+        this.insertAll(cropsName);
+
+    }
 }
