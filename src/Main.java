@@ -37,9 +37,11 @@ public class Main {
         // }
         /**Insert all**/
         //cdi.autoInsertAll();
+
+
         SoilDao sdi = new SoilDaoImpl();
         //sdi.autoInsertAll();
-        Soil soil = sdi.selectById(1);
+        List<Soil> soils = sdi.selectAll();
         int i =0;
     }
     }
