@@ -41,7 +41,11 @@ public class Main {
 
         SoilDao sdi = new SoilDaoImpl();
         //sdi.autoInsertAll();
-        List<Soil> soils = sdi.selectAll();
-        int i =0;
+        //List<Soil> soils = sdi.selectAll();
+        //Soil soil = sdi.selectById(1);
+        //sdi.update(soil,1);
+        sdi.delete(1);
+        sdi.autoInsertAll();
+
     }
     }
