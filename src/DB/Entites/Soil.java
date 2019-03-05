@@ -20,10 +20,10 @@ public class Soil {
     //Constructor
     public Soil(){}
 
-    public Soil(int id, String name, double nPrecent, double pPrecent, double kPrecent, double somDecompHigh,
+    public Soil(String name, double nPrecent, double pPrecent, double kPrecent, double somDecompHigh,
                 double somDecompModerate, double somDecompLow, int baseDressingStrategy, double rainEffect,
                 int defualtCEC, int lowerCEC, int upperCEC, double defualtBulkDensity) {
-        this.id = id;
+        this.id = 0;
         this.name = name;
         this.nPrecent = nPrecent;
         this.pPrecent = pPrecent;

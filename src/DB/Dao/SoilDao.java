@@ -2,6 +2,7 @@ package DB.Dao;
 
 import DB.Entites.Soil;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public interface SoilDao {
@@ -18,7 +19,8 @@ public interface SoilDao {
 
     int generateUniqueId();
 
-    void insertAll(String[] soilsName);
+    void insertAll(List<Soil> soils);
 
     void autoInsertAll();
+
 }

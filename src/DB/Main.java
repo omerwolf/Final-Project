@@ -1,3 +1,5 @@
+package DB;
+
 import DB.Dao.CropDao;
 import DB.Dao.SoilDao;
 import DB.DaoImpl.CropDaoImpl;
@@ -44,8 +46,8 @@ public class Main {
         //List<Soil> soils = sdi.selectAll();
         //Soil soil = sdi.selectById(1);
         //sdi.update(soil,1);
-        sdi.delete(1);
-        sdi.autoInsertAll();
+        //sdi.delete(1);
+        //sdi.autoInsertAll();
 
     }
     }

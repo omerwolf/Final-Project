@@ -21,8 +21,6 @@ public class CropDaoImpl implements CropDao {
             preparedStatement.setInt(1, crop.getId());
             preparedStatement.setString(2, crop.getName());
             preparedStatement.executeUpdate();
-            System.out.println("INSERT INTO `crop type` (crop_id,crop_name)" +
-                    " VALUES (?, ?)");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -146,7 +144,6 @@ public class CropDaoImpl implements CropDao {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
-            System.out.println("DELETE FROM `crop type` WHERE crop_id = ?");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -183,8 +180,6 @@ public class CropDaoImpl implements CropDao {
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
 
-            System.out.println("UPDATE `crop type` SET " +
-                    "crop_name = ? WHERE crop_id = ?");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -253,7 +248,6 @@ public class CropDaoImpl implements CropDao {
 
     @Override
     public void insertAll(String[] cropsName) {
-        Arrays.sort(cropsName);
 
         for(String cropName : cropsName) {
             Crop crop = new Crop();
@@ -267,8 +261,11 @@ public class CropDaoImpl implements CropDao {
 
     @Override
     public void autoInsertAll() {
-        String[] cropsName = {"Avocado", "Coffee Arabica", "Coffee Robusta", "Cotton", "Corn", "Tomato"};
+        String[] cropsName = {"Potato" , "Corn", "Almonds", "Avocado" , "Sugarcane", "Coffee",
+                "Cotton", "Processing Tomatoes", "Strawberries", "Soybeans", "Wine grapes",
+                "Table grapes" ,"Onion" ,"Pomegranade", "Citrus"};
         this.insertAll(cropsName);
+
 
     }
 }
