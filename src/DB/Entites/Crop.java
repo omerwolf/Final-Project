@@ -5,12 +5,11 @@ public class Crop {
     private String name;
 
     public Crop() {
-
     }
 
-    public Crop(String name, int id) {
-        this.name = name;
+    public Crop(int id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public int getId() {
