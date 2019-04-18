@@ -53,6 +53,7 @@ DROP TABLE IF EXISTS `crop type`;
 CREATE TABLE `crop type` (
   `crop_id` int(11) NOT NULL,
   `crop_name` varchar(100) NOT NULL,
+  `crop_group_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`crop_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -63,7 +64,7 @@ CREATE TABLE `crop type` (
 
 LOCK TABLES `crop type` WRITE;
 /*!40000 ALTER TABLE `crop type` DISABLE KEYS */;
-INSERT INTO `crop type` VALUES (1,'Potato'),(2,'Corn'),(3,'Almonds'),(4,'Avocado'),(5,'Sugarcane'),(6,'Coffee'),(7,'Cotton'),(8,'Processing Tomatoes'),(9,'Strawberries'),(10,'Soybeans'),(11,'Wine grapes'),(12,'Table grapes'),(13,'Onion'),(14,'Pomegranade'),(15,'Citrus');
+INSERT INTO `crop type` VALUES (1,'Potato',2),(2,'Corn',2),(3,'Almonds',1),(4,'Avocado',1),(5,'Sugarcane',2),(6,'Coffee',1),(7,'Cotton',2),(8,'Processing Tomatoes',2),(9,'Strawberries',2),(10,'Soybeans',2),(11,'Wine grapes',1),(12,'Table grapes',1),(13,'Onion',2),(14,'Pomegranade',1),(15,'Citrus',1);
 /*!40000 ALTER TABLE `crop type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,6 +101,30 @@ CREATE TABLE `crop_expected_yield_validation` (
 LOCK TABLES `crop_expected_yield_validation` WRITE;
 /*!40000 ALTER TABLE `crop_expected_yield_validation` DISABLE KEYS */;
 /*!40000 ALTER TABLE `crop_expected_yield_validation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `crop_group`
+--
+
+DROP TABLE IF EXISTS `crop_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `crop_group` (
+  `crop_group_id` int(11) NOT NULL,
+  `crop_group_desc` varchar(50) NOT NULL,
+  PRIMARY KEY (`crop_group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `crop_group`
+--
+
+LOCK TABLES `crop_group` WRITE;
+/*!40000 ALTER TABLE `crop_group` DISABLE KEYS */;
+INSERT INTO `crop_group` VALUES (1,'Orchards'),(2,'Field crops');
+/*!40000 ALTER TABLE `crop_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -176,6 +201,7 @@ CREATE TABLE `elements` (
 
 LOCK TABLES `elements` WRITE;
 /*!40000 ALTER TABLE `elements` DISABLE KEYS */;
+INSERT INTO `elements` VALUES (1,'N','Nitrogen'),(2,'P','Phosphorus'),(3,'K','Potassium'),(4,'Ca','Calcium'),(5,'Mg','Magnesium'),(6,'S','Sulfur'),(7,'Fe','Iron'),(8,'Mn','Manganese'),(9,'B','Boron'),(10,'Zn','Zinc'),(11,'Cu','Copper'),(12,'Mo','Molybdenum'),(13,'N-NH4','Ammoniacal Nitrogen'),(14,'N-NO3','Nitrate Nitrogen'),(15,'N-NH2','Ureic Nitrogen'),(16,'Cl','Chloride'),(17,'Na','Sodium'),(18,'HCO3','Bicarbonate'),(19,'Al','Aluminum');
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +307,7 @@ CREATE TABLE `fertilization method` (
   `fert_method_id` int(11) NOT NULL AUTO_INCREMENT,
   `fert_method_desc` varchar(100) NOT NULL,
   PRIMARY KEY (`fert_method_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,6 +316,7 @@ CREATE TABLE `fertilization method` (
 
 LOCK TABLES `fertilization method` WRITE;
 /*!40000 ALTER TABLE `fertilization method` DISABLE KEYS */;
+INSERT INTO `fertilization method` VALUES (1,'Soil Application'),(2,'Band Application'),(3,'Drip Fertigation'),(4,'SDI Fertigation'),(5,'Sprinklers Fertigation'),(6,'Pivot Fertigation'),(7,'Flooding');
 /*!40000 ALTER TABLE `fertilization method` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,10 +459,10 @@ DROP TABLE IF EXISTS `irrigation_method`;
 CREATE TABLE `irrigation_method` (
   `irrigation_method_id` int(11) NOT NULL AUTO_INCREMENT,
   `irrigation_method_desc` varchar(30) NOT NULL,
-  `irrigation_method_efficiency` decimal(10,0) NOT NULL,
-  `irrigation_method_wetted_area` decimal(10,0) NOT NULL,
+  `irrigation_method_efficiency` decimal(3,2) NOT NULL,
+  `irrigation_method_wetted_area` decimal(3,2) NOT NULL,
   PRIMARY KEY (`irrigation_method_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -444,6 +471,7 @@ CREATE TABLE `irrigation_method` (
 
 LOCK TABLES `irrigation_method` WRITE;
 /*!40000 ALTER TABLE `irrigation_method` DISABLE KEYS */;
+INSERT INTO `irrigation_method` VALUES (6,'Drip',0.90,0.50),(7,'SDI',0.90,0.50),(8,'Sprinklers',0.75,1.00),(9,'Pivot',0.80,1.00),(10,'Flooding',0.60,1.00);
 /*!40000 ALTER TABLE `irrigation_method` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -565,7 +593,7 @@ CREATE TABLE `layer_depth_type` (
   `user_update` varchar(20) DEFAULT NULL,
   `date_update` datetime DEFAULT NULL,
   PRIMARY KEY (`layer_depth_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -574,6 +602,7 @@ CREATE TABLE `layer_depth_type` (
 
 LOCK TABLES `layer_depth_type` WRITE;
 /*!40000 ALTER TABLE `layer_depth_type` DISABLE KEYS */;
+INSERT INTO `layer_depth_type` VALUES (1,'0-30',0,30,_binary '',NULL,NULL,NULL,NULL),(2,'0-15',0,15,_binary '',NULL,NULL,NULL,NULL),(3,'15-30',15,30,_binary '',NULL,NULL,NULL,NULL),(4,'30-60',30,60,_binary '',NULL,NULL,NULL,NULL),(5,'30-45',30,45,_binary '',NULL,NULL,NULL,NULL),(6,'45-60',45,60,_binary '',NULL,NULL,NULL,NULL),(7,'60-90',60,90,_binary '',NULL,NULL,NULL,NULL),(8,'60-75',60,75,_binary '',NULL,NULL,NULL,NULL),(9,'75-90',75,90,_binary '',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `layer_depth_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -727,9 +756,13 @@ CREATE TABLE `parameters` (
   `parameter_id` int(11) NOT NULL,
   `element_id` int(11) NOT NULL,
   `data_type_id` int(11) DEFAULT NULL,
-  `very_low_factor` decimal(2,2) DEFAULT NULL,
-  `very_high_factor` decimal(2,2) DEFAULT NULL,
-  `is_active` bit(1) NOT NULL,
+  `very_low_factor` decimal(3,2) DEFAULT NULL,
+  `low_factor` decimal(3,2) DEFAULT NULL,
+  `high_factor` decimal(3,2) DEFAULT NULL,
+  `very_high_factor` decimal(3,2) DEFAULT NULL,
+  `pre_low_factor` decimal(3,2) DEFAULT NULL,
+  `pre_high_factor` decimal(3,2) DEFAULT NULL,
+  `is_active` bit(1) DEFAULT NULL,
   `user_insert` varchar(20) DEFAULT NULL,
   `date_insert` datetime DEFAULT NULL,
   `user_update` varchar(20) DEFAULT NULL,
@@ -748,6 +781,7 @@ CREATE TABLE `parameters` (
 
 LOCK TABLES `parameters` WRITE;
 /*!40000 ALTER TABLE `parameters` DISABLE KEYS */;
+INSERT INTO `parameters` VALUES (1,1,1,1.00,1.00,1.00,1.00,1.00,1.00,NULL,NULL,NULL,NULL,NULL),(2,2,1,0.20,0.10,0.10,0.20,0.50,0.50,NULL,NULL,NULL,NULL,NULL),(3,3,1,0.20,0.10,0.10,0.20,0.50,0.50,NULL,NULL,NULL,NULL,NULL),(4,4,2,0.20,0.10,0.10,0.20,0.50,0.50,NULL,NULL,NULL,NULL,NULL),(5,5,2,0.20,0.10,0.10,0.20,0.50,0.50,NULL,NULL,NULL,NULL,NULL),(6,6,2,1.00,1.00,1.00,1.00,1.00,1.00,NULL,NULL,NULL,NULL,NULL),(7,7,3,0.00,0.00,0.00,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL),(8,8,3,0.00,0.00,0.00,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL),(9,9,3,0.00,0.00,0.00,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL),(10,10,3,0.00,0.00,0.00,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL),(11,11,3,0.00,0.00,0.00,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL),(12,12,3,0.00,0.00,0.00,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `parameters` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -845,7 +879,7 @@ CREATE TABLE `previous_crop_n_credit` (
   `percent` int(11) DEFAULT NULL,
   `ncredit` int(11) NOT NULL,
   PRIMARY KEY (`previous_crop_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -854,6 +888,7 @@ CREATE TABLE `previous_crop_n_credit` (
 
 LOCK TABLES `previous_crop_n_credit` WRITE;
 /*!40000 ALTER TABLE `previous_crop_n_credit` DISABLE KEYS */;
+INSERT INTO `previous_crop_n_credit` VALUES (1,'Alfalfa (established more than one year)',50,101),(2,'Alfalfa (established more than one year)',75,129),(3,'Alfalfa (established more than one year)',100,157),(4,'Alfalfa, seeding (6-12 monthes after seeding)',50,73),(5,'Alfalfa, seeding (6-12 monthes after seeding)',75,87),(6,'Alfalfa, seeding (6-12 monthes after seeding)',100,101),(7,'Clover (established more than one year)',50,73),(8,'Clover (established more than one year)',75,87),(9,'Clover (established more than one year)',100,101),(10,'Clover, seeding (6-12 monthes after seeding)',50,50),(11,'Clover, seeding (6-12 monthes after seeding)',75,64),(12,'Clover, seeding (6-12 monthes after seeding)',100,78),(13,'Barley+ legume',75,62),(14,'Barley+ legume',100,76),(15,'Barley+ legume',50,90),(16,'Oats+ legume',75,62),(17,'Oats+ legume',100,76),(18,'Oats+ legume',50,90),(19,'Wheat+ legume',75,62),(20,'Wheat+ legume',100,76),(21,'Wheat+ legume',50,90),(22,'Clover-grass hay',NULL,45),(23,'Grass hay',NULL,45),(24,'Dry edible beans',NULL,22),(25,'Soybeans',NULL,34),(26,'CRP land (whether grass/ legume or just grass)',NULL,45),(27,'Other',NULL,0);
 /*!40000 ALTER TABLE `previous_crop_n_credit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1629,4 +1664,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-11 15:26:09
+-- Dump completed on 2019-04-18 21:49:38

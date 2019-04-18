@@ -6,18 +6,39 @@ import DB.Dao.data_typesDao;
 import DB.Dao.variety_typeDao;
 import DB.Dao.pheonological_stageDao;
 import DB.Dao.parameter_cropDao;
+import DB.Dao.fertilization_methodDao;
+import DB.Dao.elementsDao;
+import DB.Dao.parametersDao;
+import DB.Dao.layer_depth_typeDao;
+import DB.Dao.CropGroupDao;
+import DB.Dao.PreviousCropNCreditDao;
+import DB.Dao.IrrigationMethodDao;
 import DB.DaoImpl.CropDaoImpl;
 import DB.DaoImpl.SoilDaoImpl;
 import DB.DaoImpl.data_typesDaoImpl;
 import DB.DaoImpl.variety_typeDaoImpl;
 import DB.DaoImpl.pheonological_stageDaoImpl;
 import DB.DaoImpl.parameter_cropDaoImpl;
+import DB.DaoImpl.fertilization_methodDaoImpl;
+import DB.DaoImpl.elementsDaoImpl;
+import DB.DaoImpl.parametersDaoImpl;
+import DB.DaoImpl.layer_depth_typeDaoImpl;
+import DB.DaoImpl.CropGroupDaoImpl;
+import DB.DaoImpl.PreviousCropNCreditDaoImpl;
+import DB.DaoImpl.IrrigationMethodDaoImpl;
 import DB.Entites.Crop;
 import DB.Entites.Soil;
 import DB.Entites.data_types;
 import DB.Entites.variety_type;
 import DB.Entites.pheonological_stage;
 import DB.Entites.parameter_crop;
+import DB.Entites.fertilization_method;
+import DB.Entites.elements;
+import DB.Entites.parameters;
+import DB.Entites.layer_depth_type;
+import DB.Entites.CropGroup;
+import DB.Entites.PreviousCropNCredit;
+import DB.Entites.IrrigationMethod;
 import DB.Util.ConnectionConfiguration;
 
 import java.sql.Array;
@@ -36,9 +57,12 @@ public class Main {
         //cdi.insert(crop);
         /**Select by id**/
         //Crop crop = cdi.selectById(7);
-        //System.out.println(crop.getId() + ", " + crop.getName());
+        //System.out.println(crop.getId() + ", " + crop.getName() + ", " + crop.getCrop_group_id());
 
         /**Delete by id**/
+        /*for (int i=1;i<=15;i++) {
+            cdi.delete(i);
+        }*/
         //cdi.delete(1);
         //cdi.delete(2);
         //cdi.delete(3);
@@ -46,16 +70,17 @@ public class Main {
         //cdi.delete(5);
         //cdi.delete(6);
         /**Update **/
-        //Crop cropUpdate = new Crop("BBB",2);
+        //Crop cropUpdate = new Crop("BBa",3);
+        //cropUpdate.setId(16);
         //cdi.update(cropUpdate,2);
 
 
         /**Insert all**/
         //cdi.autoInsertAll();
         /**Select all**/
-        /**List<Crop> crops = cdi.selectAll();
+        /*List<Crop> crops = cdi.selectAll();
         for (Crop c : crops) {
-            System.out.println(c.getId() + ", " + c.getName());
+            System.out.println(c.getId() + ", " + c.getName() + ", " + c.getCrop_group_id());
         }*/
 
         //SoilDao sdi = new SoilDaoImpl();
@@ -117,99 +142,114 @@ public class Main {
         //pheonological_stage ps1 = psd.selectById(5);
         //psd.update(ps1,1);
         //psd.autoInsertAll();
-        /*psd.delete(1);
-        psd.delete(2);
-        psd.delete(3);
-        psd.delete(4);
-        psd.delete(5);
-        psd.delete(6);
-        psd.delete(7);
-        psd.delete(8);
-        psd.delete(9);
-        psd.delete(10);
-        psd.delete(11);
-        psd.delete(12);
-        psd.delete(13);
-        psd.delete(14);
-        psd.delete(15);
-        psd.delete(16);
-        psd.delete(17);
-        psd.delete(18);
-        psd.delete(19);
-        psd.delete(20);
-        psd.delete(21);
-        psd.delete(22);
-        psd.delete(23);
-        psd.delete(24);
-        psd.delete(25);
-        psd.delete(26);
-        psd.delete(27);
-        psd.delete(28);
-        psd.delete(29);
-        psd.delete(30);
-        psd.delete(31);
-        psd.delete(32);
-        psd.delete(33);
-        psd.delete(34);
-        psd.delete(35);
-        psd.delete(36);
-        psd.delete(37);
-        psd.delete(38);
-        psd.delete(39);
-        psd.delete(40);
-        psd.delete(41);
-        psd.delete(42);
-        psd.delete(43);
-        psd.delete(44);
-        psd.delete(45);
-        psd.delete(46);
-        psd.delete(47);
-        psd.delete(48);
-        psd.delete(49);
-        psd.delete(50);
-        psd.delete(51);
-        psd.delete(52);
-        psd.delete(53);
-        psd.delete(54);
-        psd.delete(55);
-        psd.delete(56);
-        psd.delete(57);
-        psd.delete(58);
-        psd.delete(59);
-        psd.delete(60);
-        psd.delete(61);
-        psd.delete(62);
-        psd.delete(63);
-        psd.delete(64);
-        psd.delete(65);
-        psd.delete(66);
-        psd.delete(67);
-        psd.delete(68);
-        psd.delete(69);
-        psd.delete(70);
-        psd.delete(71);
-        psd.delete(72);
-        psd.delete(73);
-        psd.delete(74);
-        psd.delete(75);
-        psd.delete(76);
-        psd.delete(77);
-        psd.delete(78);
-        psd.delete(79);
-        psd.delete(80);
-        psd.delete(81);
-        psd.delete(82);
-        psd.delete(83);
-        psd.delete(84);
-        psd.delete(85);
-        psd.delete(86);
-        psd.delete(87);
-        psd.delete(88);
-        psd.delete(89);
-        psd.delete(90);
-        psd.delete(91);
-        psd.delete(92);
-        psd.delete(93);*/
+        /*psd.delete(1);*/
+
+        //fertilization method testing
+
+        //fertilization_methodDao fert = new fertilization_methodDaoImpl();
+        //fertilization_method fertm = new fertilization_method(fert.generateUniqueId(),"unique");
+        //fert.insert(fertm);
+        //fert.update(fertm,1);
+        //fert.delete(1);
+        //fertilization_method fert2 = fert.selectById(1);
+        //System.out.println(fert2.getFert_method_id() + " " + fert2.getFert_method_desc());
+        //String[] arrfert = {"first","second","third"};
+        //fert.insertAll(arrfert);
+        /*fert.autoInsertAll();
+        List<fertilization_method> listfert= fert.selectAll();
+        for (fertilization_method f:listfert) {
+            System.out.println(f.getFert_method_id() +" " + f.getFert_method_desc());
+        }*/
+
+        //elements testing
+        //elementsDao eled = new elementsDaoImpl();
+        //elements element = new elements("S", "Something");
+        //eled.insert(element);
+        //eled.delete(0);
+        //elements element2 = new elements("S2","Something2");
+        //eled.insert(element2);
+        //elements element3 = eled.selectById(1);
+        //eled.update(element,0);
+        /*List<elements> listelem = eled.selectAll();
+        for (elements elem:listelem) {
+            System.out.println(elem.getElement_id() + " " + elem.getSymbol() +" " + elem.getDescription());
+        }*/
+        //eled.autoInsertAll();
+
+        //parameters testing
+        //parametersDao parad = new parametersDaoImpl();
+        //parad.autoInsertAll();
+        /*List<parameters> parameterslist = parad.selectAll();
+        for (parameters p:parameterslist) {
+            System.out.println(p.getParameter_id());
+        }
+        parameters p1 = parad.selectById(2);
+        System.out.println(p1.getPre_low_factor());
+        for (int i=1;i<11;i++) {
+            parad.delete(i);
+        }*/
+
+        //layer_depth testing
+        /*layer_depth_typeDao layerd = new layer_depth_typeDaoImpl();
+        layerd.autoInsertAll();
+        List<layer_depth_type> listLayer = layerd.selectAll();
+        for (layer_depth_type layer:listLayer) {
+            System.out.println(layer.getLayer_depth_name());
+        }
+        //for (int i=1;i<10;i++) {
+        //    layerd.delete(i);
+        //}
+        layer_depth_type layerid = layerd.selectById(5);
+        System.out.println(layerid.getLayer_depth_name());*/
+
+        //crop Group testing
+        //CropGroupDao cropGroupDao = new CropGroupDaoImpl();
+        //cropGroupDao.autoInsertAll();
+        /*List<CropGroup> cropGroupList = cropGroupDao.selectAll();
+        for (CropGroup cg:cropGroupList) {
+            System.out.println(cg.getCropGroupId() + " " + cg.getCropGroupDesc());
+        }*/
+        /*for (int i=1;i<=2;i++) {
+            cropGroupDao.delete(i);
+        }*/
+        /*CropGroup cropGroup = new CropGroup(1,"Group1");
+        CropGroup cropGroup2 = new CropGroup(2,"Group2");
+        cropGroupDao.insert(cropGroup);
+        cropGroupDao.insert(cropGroup2);
+        cropGroupDao.update(cropGroup2,1);
+        CropGroup check = cropGroupDao.selectById(1);
+        System.out.println(check.getCropGroupId());*/
+
+        //previous crop n credit testing
+        //PreviousCropNCreditDao pcncd = new PreviousCropNCreditDaoImpl();
+        //pcncd.autoInsertAll();
+        /*List<PreviousCropNCredit> pcncList = pcncd.selectAll();
+        for (PreviousCropNCredit credit:pcncList) {
+            System.out.println(credit.getPercent());
+        }*/
+        //PreviousCropNCredit pcncSelect = pcncd.selectById(5);
+        //System.out.println(pcncSelect.getPreviousCropId() + " " + pcncSelect.getPreviousCropName());
+        /*for (int i=1;i<=27; i++) {
+            pcncd.delete(i);
+        }*/
+        /*PreviousCropNCredit pcnc1 = new PreviousCropNCredit(1,"example",50,50);
+        PreviousCropNCredit pcnc2 = new PreviousCropNCredit(2,"example2",null,70);
+        pcncd.update(pcnc2,1);*/
+
+        //irrigation method testing
+        //IrrigationMethodDao irrigationMethodDao = new IrrigationMethodDaoImpl();
+        //irrigationMethodDao.autoInsertAll();
+        /*List<IrrigationMethod> listIrr = irrigationMethodDao.selectAll();
+        for (IrrigationMethod im: listIrr) {
+            System.out.println(im.getIrrigation_method_desc());
+        }
+        IrrigationMethod im1 = irrigationMethodDao.selectById(3);
+        System.out.println("im1 desc is: " +im1.getIrrigation_method_desc());*/
+        /*for (int i=1;i<=5;i++) {
+            irrigationMethodDao.delete(i);
+        }*/
+        //IrrigationMethod im2 = irrigationMethodDao.selectById(2);
+        //irrigationMethodDao.update(im2,5);
 
     }
     }

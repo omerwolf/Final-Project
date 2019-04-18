@@ -3,13 +3,15 @@ package DB.Entites;
 public class Crop {
     private int id;
     private String name;
+    private int crop_group_id;
 
     public Crop() {
     }
 
-    public Crop(int id, String name) {
-        this.id = id;
+    public Crop(String name, int crop_group_id) {
+        this.id = 0;
         this.name = name;
+        this.crop_group_id = crop_group_id;
     }
 
     public int getId() {
@@ -26,5 +28,13 @@ public class Crop {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCrop_group_id() {
+        return crop_group_id;
+    }
+
+    public void setCrop_group_id(int crop_group_id) {
+        this.crop_group_id = crop_group_id;
     }
 }

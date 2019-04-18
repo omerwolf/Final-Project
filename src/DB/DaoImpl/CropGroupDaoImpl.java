@@ -1,7 +1,7 @@
 package DB.DaoImpl;
 
-import DB.Dao.CropDao;
-import DB.Entites.Crop;
+import DB.Dao.CropGroupDao;
+import DB.Entites.CropGroup;
 import DB.Util.ConnectionConfiguration;
 
 import java.sql.*;
@@ -9,18 +9,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CropDaoImpl implements CropDao {
+public class CropGroupDaoImpl implements CropGroupDao {
     @Override
-    public void insert(Crop crop) {
+    public void insert(CropGroup cropGroup) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
             connection = ConnectionConfiguration.getConnection();
-            preparedStatement = connection.prepareStatement("INSERT INTO `crop type` (crop_id,crop_name,crop_group_id)" +
-                    "VALUES (?, ?, ?)");
-            preparedStatement.setInt(1, crop.getId());
-            preparedStatement.setString(2, crop.getName());
-            preparedStatement.setInt(3, crop.getCrop_group_id());
+            preparedStatement = connection.prepareStatement("INSERT INTO `crop_group` (crop_group_id,crop_group_desc)" +
+                    "VALUES (?, ?)");
+            preparedStatement.setInt(1, cropGroup.getCropGroupId());
+            preparedStatement.setString(2, cropGroup.getCropGroupDesc());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,22 +42,21 @@ public class CropDaoImpl implements CropDao {
     }
 
     @Override
-    public Crop selectById(int id) {
-        Crop crop = new Crop();
+    public CropGroup selectById(int id) {
+        CropGroup cropGroup = new CropGroup();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         try {
             connection = ConnectionConfiguration.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT * FROM `crop type` WHERE crop_id = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM `crop_group` WHERE crop_group_id = ?");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                crop.setId(resultSet.getInt("crop_id"));
-                crop.setName(resultSet.getString("crop_name"));
-                crop.setCrop_group_id(resultSet.getInt("crop_group_id"));
+                cropGroup.setCropGroupId(resultSet.getInt("crop_group_id"));
+                cropGroup.setCropGroupDesc(resultSet.getString("crop_group_desc"));
             }
 
         } catch (Exception e) {
@@ -86,12 +84,12 @@ public class CropDaoImpl implements CropDao {
                 }
             }
         }
-        return crop;
+        return cropGroup;
     }
 
     @Override
-    public List<Crop> selectAll() {
-        List<Crop> crops = new ArrayList<>();
+    public List<CropGroup> selectAll() {
+        List<CropGroup> cropGroupList = new ArrayList<>();
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -99,14 +97,13 @@ public class CropDaoImpl implements CropDao {
         try {
             connection = ConnectionConfiguration.getConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM `crop type`");
+            resultSet = statement.executeQuery("SELECT * FROM `crop_group`");
 
             while (resultSet.next()) {
-                Crop crop = new Crop();
-                crop.setId(resultSet.getInt("crop_id"));
-                crop.setName(resultSet.getString("crop_name"));
-                crop.setCrop_group_id(resultSet.getInt("crop_group_id"));
-                crops.add(crop);
+                CropGroup cropGroup = new CropGroup();
+                cropGroup.setCropGroupId(resultSet.getInt("crop_group_id"));
+                cropGroup.setCropGroupDesc(resultSet.getString("crop_group_desc"));
+                cropGroupList.add(cropGroup);
             }
 
         } catch (Exception e) {
@@ -134,7 +131,7 @@ public class CropDaoImpl implements CropDao {
                 }
             }
         }
-        return crops;
+        return cropGroupList;
     }
 
     @Override
@@ -143,7 +140,7 @@ public class CropDaoImpl implements CropDao {
         PreparedStatement preparedStatement = null;
         try {
             connection = ConnectionConfiguration.getConnection();
-            preparedStatement = connection.prepareStatement("DELETE FROM `crop type` WHERE crop_id = ?");
+            preparedStatement = connection.prepareStatement("DELETE FROM `crop_group` WHERE crop_group_id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
@@ -170,18 +167,17 @@ public class CropDaoImpl implements CropDao {
 
 
     @Override
-    public void update(Crop crop, int id) {
+    public void update(CropGroup cropGroup, int id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connection = ConnectionConfiguration.getConnection();
-            preparedStatement = connection.prepareStatement("UPDATE `crop type` SET " +
-                    "crop_name = ?, crop_group_id = ? WHERE crop_id = ?");
+            preparedStatement = connection.prepareStatement("UPDATE `crop_group` SET " +
+                    "crop_group_desc = ? WHERE crop_group_id = ?");
 
-            preparedStatement.setString(1, crop.getName());
-            preparedStatement.setInt(2, crop.getCrop_group_id());
-            preparedStatement.setInt(3, id);
+            preparedStatement.setString(1, cropGroup.getCropGroupDesc());
+            preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
 
 
@@ -213,12 +209,12 @@ public class CropDaoImpl implements CropDao {
         try {
             connection = ConnectionConfiguration.getConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM `crop type`");
+            resultSet = statement.executeQuery("SELECT * FROM `crop_group`");
 
 
 
             while (resultSet.next()) {
-                emptySpace = resultSet.getInt("crop_id") + 1;
+                emptySpace = resultSet.getInt("crop_group_id") + 1;
 
             }
 
@@ -251,11 +247,13 @@ public class CropDaoImpl implements CropDao {
     }
 
     @Override
-    public void insertAll(List<Crop> cropList) {
+    public void insertAll(String[] cropGroupNames) {
 
-        for(Crop crop : cropList) {
-            crop.setId(this.generateUniqueId());
-            this.insert(crop);
+        for(String cropGroupName : cropGroupNames) {
+            CropGroup cropGroup = new CropGroup();
+            cropGroup.setCropGroupDesc(cropGroupName);
+            cropGroup.setCropGroupId(this.generateUniqueId());
+            this.insert(cropGroup);
 
         }
         System.out.println("insertAll finished!");
@@ -263,38 +261,9 @@ public class CropDaoImpl implements CropDao {
 
     @Override
     public void autoInsertAll() {
-        Crop crop1 = new Crop("Potato" , 2);
-        Crop crop2 = new Crop("Corn", 2);
-        Crop crop3 = new Crop("Almonds", 1);
-        Crop crop4 = new Crop("Avocado" , 1);
-        Crop crop5 = new Crop("Sugarcane", 2);
-        Crop crop6 = new Crop("Coffee", 1);
-        Crop crop7 = new Crop("Cotton", 2);
-        Crop crop8 = new Crop("Processing Tomatoes", 2);
-        Crop crop9 = new Crop("Strawberries", 2);
-        Crop crop10 = new Crop("Soybeans", 2);
-        Crop crop11 = new Crop("Wine grapes", 1);
-        Crop crop12 = new Crop("Table grapes" , 1);
-        Crop crop13 = new Crop("Onion" , 2);
-        Crop crop14 = new Crop("Pomegranade", 1);
-        Crop crop15 = new Crop("Citrus", 1);
-        List<Crop> cropList = new ArrayList<>();
-        cropList.add(crop1);
-        cropList.add(crop2);
-        cropList.add(crop3);
-        cropList.add(crop4);
-        cropList.add(crop5);
-        cropList.add(crop6);
-        cropList.add(crop7);
-        cropList.add(crop8);
-        cropList.add(crop9);
-        cropList.add(crop10);
-        cropList.add(crop11);
-        cropList.add(crop12);
-        cropList.add(crop13);
-        cropList.add(crop14);
-        cropList.add(crop15);
-        this.insertAll(cropList);
+        String[] cropGroupNames = {"Orchards" , "Field crops"};
+        this.insertAll(cropGroupNames);
+
 
     }
 }

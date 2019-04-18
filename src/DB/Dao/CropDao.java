@@ -18,7 +18,7 @@ public interface CropDao {
 
     int generateUniqueId();
 
-    void insertAll(String[] cropsName);
+    void insertAll(List<Crop> cropsName);
 
     void autoInsertAll();
 }
