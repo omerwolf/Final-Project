@@ -13,6 +13,8 @@ import DB.Dao.layer_depth_typeDao;
 import DB.Dao.CropGroupDao;
 import DB.Dao.PreviousCropNCreditDao;
 import DB.Dao.IrrigationMethodDao;
+import DB.Dao.ParameterPerStageDao;
+import DB.Dao.FertilizationMethodEfficiencyDao;
 import DB.DaoImpl.CropDaoImpl;
 import DB.DaoImpl.SoilDaoImpl;
 import DB.DaoImpl.data_typesDaoImpl;
@@ -26,6 +28,8 @@ import DB.DaoImpl.layer_depth_typeDaoImpl;
 import DB.DaoImpl.CropGroupDaoImpl;
 import DB.DaoImpl.PreviousCropNCreditDaoImpl;
 import DB.DaoImpl.IrrigationMethodDaoImpl;
+import DB.DaoImpl.ParameterPerStageDaoImpl;
+import DB.DaoImpl.FertilizationMethodEfficiencyDaoImpl;
 import DB.Entites.Crop;
 import DB.Entites.Soil;
 import DB.Entites.data_types;
@@ -39,6 +43,8 @@ import DB.Entites.layer_depth_type;
 import DB.Entites.CropGroup;
 import DB.Entites.PreviousCropNCredit;
 import DB.Entites.IrrigationMethod;
+import DB.Entites.ParameterPerStage;
+import DB.Entites.FertilizationMethodEfficiency;
 import DB.Util.ConnectionConfiguration;
 
 import java.sql.Array;
@@ -146,7 +152,7 @@ public class Main {
 
         //fertilization method testing
 
-        //fertilization_methodDao fert = new fertilization_methodDaoImpl();
+        fertilization_methodDao fert = new fertilization_methodDaoImpl();
         //fertilization_method fertm = new fertilization_method(fert.generateUniqueId(),"unique");
         //fert.insert(fertm);
         //fert.update(fertm,1);
@@ -155,8 +161,8 @@ public class Main {
         //System.out.println(fert2.getFert_method_id() + " " + fert2.getFert_method_desc());
         //String[] arrfert = {"first","second","third"};
         //fert.insertAll(arrfert);
-        /*fert.autoInsertAll();
-        List<fertilization_method> listfert= fert.selectAll();
+        fert.autoInsertAll();
+        /*List<fertilization_method> listfert= fert.selectAll();
         for (fertilization_method f:listfert) {
             System.out.println(f.getFert_method_id() +" " + f.getFert_method_desc());
         }*/
@@ -251,5 +257,22 @@ public class Main {
         //IrrigationMethod im2 = irrigationMethodDao.selectById(2);
         //irrigationMethodDao.update(im2,5);
 
+        //parameter per stage testing
+        //ParameterPerStageDao perstageDao = new ParameterPerStageDaoImpl();
+        //ParameterPerStage perstage1 = new ParameterPerStage(1,2,3,0.25);
+        //perstageDao.insert(perstage1);
+
+        //fertilization method efficiency testing
+        //FertilizationMethodEfficiencyDao fmed = new FertilizationMethodEfficiencyDaoImpl();
+        //FertilizationMethodEfficiency fme2 = new FertilizationMethodEfficiency(5,0.5);
+        //fmed.insert(fme2);
+        //fmed.delete(1);
+        //fmed.delete(2);
+        //fmed.delete(3);
+        //fmed.delete(4);
+        /*List<FertilizationMethodEfficiency> fmelist = fmed.selectAll();
+        for (FertilizationMethodEfficiency fmeitem:fmelist) {
+            System.out.println(fmeitem.getFert_method_efficiency());
+        }*/
     }
     }

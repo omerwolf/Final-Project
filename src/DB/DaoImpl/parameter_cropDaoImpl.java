@@ -23,14 +23,16 @@ public class parameter_cropDaoImpl implements parameter_cropDao{
                     "`variety_id`," +
                     "`parameter_id`," +
                     "`amount`," +
-                    "`base_line`) " +
-                    "VALUES (?,?,?,?,?,?)");
+                    "`base_line`," +
+                    "`amount2`) " +
+                    "VALUES (?,?,?,?,?,?,?)");
             preparedStatement.setInt(1, parameter_crop.getParam_per_crop_id());
             preparedStatement.setInt(2, parameter_crop.getCrop_id());
             preparedStatement.setInt(3, parameter_crop.getVariety_id());
             preparedStatement.setInt(4, parameter_crop.getParameter_id());
             preparedStatement.setDouble(5, parameter_crop.getAmount());
             preparedStatement.setDouble(6, parameter_crop.getBase_line());
+            preparedStatement.setDouble(7, parameter_crop.getAmount2());
             preparedStatement.executeUpdate();
             statement.executeQuery("SET FOREIGN_KEY_CHECKS=1");
             //System.out.println("Insert: " + soil.getName());
@@ -74,6 +76,7 @@ public class parameter_cropDaoImpl implements parameter_cropDao{
                 parameter_crop.setParameter_id(resultSet.getInt("parameter_id"));
                 parameter_crop.setAmount(resultSet.getDouble("amount"));
                 parameter_crop.setBase_line(resultSet.getDouble("base_line"));
+                parameter_crop.setAmount2(resultSet.getDouble("amount2"));
             }
 
         } catch (Exception e) {
@@ -124,6 +127,7 @@ public class parameter_cropDaoImpl implements parameter_cropDao{
                 parameter_crop.setParameter_id(resultSet.getInt("parameter_id"));
                 parameter_crop.setAmount(resultSet.getDouble("amount"));
                 parameter_crop.setBase_line(resultSet.getDouble("base_line"));
+                parameter_crop.setAmount2(resultSet.getDouble("amount2"));
                 parameter_crops.add(parameter_crop);
             }
 
@@ -199,6 +203,7 @@ public class parameter_cropDaoImpl implements parameter_cropDao{
                     "`parameter_id`," +
                     "`amount`," +
                     "`base_line`," +
+                    "`amount2`," +
                     "WHERE param_per_crop_id = ?");
 
             preparedStatement.setInt(1, parameter_crop.getParam_per_crop_id());
@@ -207,6 +212,7 @@ public class parameter_cropDaoImpl implements parameter_cropDao{
             preparedStatement.setInt(4, parameter_crop.getParameter_id());
             preparedStatement.setDouble(5, parameter_crop.getAmount());
             preparedStatement.setDouble(6, parameter_crop.getBase_line());
+            preparedStatement.setDouble(7,parameter_crop.getAmount2());
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {
@@ -288,90 +294,90 @@ public class parameter_cropDaoImpl implements parameter_cropDao{
 
     @Override
     public void autoInsertAll() {
-        parameter_crop pc1 = new parameter_crop(8,	8,	1,	2.408,	0.000);
-        parameter_crop pc2 = new parameter_crop(8,	8,	2,	0.193,	0.000);
-        parameter_crop pc3 = new parameter_crop(8,	8,	3,	2.639,	0.000);
-        parameter_crop pc4 = new parameter_crop(8,	8,	4,	0.429,	0.000);
-        parameter_crop pc5 = new parameter_crop(8,	8,	5,	0.188,	0.000);
-        parameter_crop pc6 = new parameter_crop(8,	8,	6,	0.000,	0.000);
-        parameter_crop pc7 = new parameter_crop(8,	8,	7,	0.000,	0.000);
-        parameter_crop pc8 = new parameter_crop(8,	8,	8,	0.000,	0.000);
-        parameter_crop pc9 = new parameter_crop(8,	8,	9,	0.000,	0.000);
-        parameter_crop pc10 = new parameter_crop(8,	8,	10,	0.000,	0.000);
-        parameter_crop pc11 = new parameter_crop(8,	8,	11,	0.000,	0.000);
-        parameter_crop pc12 = new parameter_crop(8,	8,	12,	0.000,	0.000);
-        parameter_crop pc13 = new parameter_crop(6,	2,	1,	62.510,	157.500);
-        parameter_crop pc14 = new parameter_crop(6,	2,	2,	2.958,	4.258);
-        parameter_crop pc15 = new parameter_crop(6,	2,	3,	28.955,	83.333);
-        parameter_crop pc16 = new parameter_crop(6,	2,	4,	0.000,	38.571);
-        parameter_crop pc17 = new parameter_crop(6,	2,	5,	0.000,	25.313);
-        parameter_crop pc18 = new parameter_crop(6,	2,	6,	10.420,	6.750);
-        parameter_crop pc19 = new parameter_crop(6,	2,	7,	0.000,	2.000);
-        parameter_crop pc20 = new parameter_crop(6,	2,	8,	0.000,	2.000);
-        parameter_crop pc21 = new parameter_crop(6,	2,	9,	0.000,	0.750);
-        parameter_crop pc22 = new parameter_crop(6,	2,	10,	0.000,	2.000);
-        parameter_crop pc23 = new parameter_crop(6,	2,	11,	0.000,	1.000);
-        parameter_crop pc24 = new parameter_crop(6,	2,	12,	0.000,	0.000);
-        parameter_crop pc25 = new parameter_crop(6,	3,	1,	24.300,	157.500);
-        parameter_crop pc26 = new parameter_crop(6,	3,	2,	2.958,	4.258);
-        parameter_crop pc27 = new parameter_crop(6,	3,	3,	28.955,	83.333);
-        parameter_crop pc28 = new parameter_crop(6,	3,	4,	0.000,	38.571);
-        parameter_crop pc29 = new parameter_crop(6,	3,	5,	0.000,	25.313);
-        parameter_crop pc30 = new parameter_crop(6,	3,	6,	5.210,	6.750);
-        parameter_crop pc31 = new parameter_crop(6,	3,	7,	0.000,	2.000);
-        parameter_crop pc32 = new parameter_crop(6,	3,	8,	0.000,	2.000);
-        parameter_crop pc33 = new parameter_crop(6,	3,	9,	0.000,	0.750);
-        parameter_crop pc34 = new parameter_crop(6,	3,	10,	0.000,	2.000);
-        parameter_crop pc35 = new parameter_crop(6,	3,	11,	0.000,	1.000);
-        parameter_crop pc36 = new parameter_crop(6,	3,	12,	0.000,	0.000);
-        parameter_crop pc37 = new parameter_crop(7,	7,	1,	93.60,	0);
-        parameter_crop pc38 = new parameter_crop(7,	7,	2,	8.65,	0);
-        parameter_crop pc39 = new parameter_crop(7,	7,	3,	68.75,	0);
-        parameter_crop pc40 = new parameter_crop(7,	7,	4,	0,	0);
-        parameter_crop pc41 = new parameter_crop(7,	7,	5,	0,	0);
-        parameter_crop pc42 = new parameter_crop(7,	7,	6,	0,	0);
-        parameter_crop pc43 = new parameter_crop(7,	7,	7,	0,	0);
-        parameter_crop pc44 = new parameter_crop(7,	7,	8,	0.000,	0);
-        parameter_crop pc45 = new parameter_crop(7,	7,	9,	0.000,	0);
-        parameter_crop pc46 = new parameter_crop(7,	7,	10,	0.000,	0);
-        parameter_crop pc47 = new parameter_crop(7,	7,	11,	0.000,	0);
-        parameter_crop pc48 = new parameter_crop(7,	7,	12,	0.000,	0);
-        parameter_crop pc49 = new parameter_crop(4,	1,	1,	9.450,	32);
-        parameter_crop pc50 = new parameter_crop(4,	1,	2,	0.550,	2.10);
-        parameter_crop pc51 = new parameter_crop(4,	1,	3,	7.000,	23.33);
-        parameter_crop pc52 = new parameter_crop(4,	1,	4,	0.000,	0);
-        parameter_crop pc53 = new parameter_crop(4,	1,	5,	0.000,	0);
-        parameter_crop pc54 = new parameter_crop(4,	1,	6,	0.000,	0);
-        parameter_crop pc55 = new parameter_crop(4,	1,	7,	0.000,	0);
-        parameter_crop pc56 = new parameter_crop(4,	1,	8,	0.000,	0);
-        parameter_crop pc57 = new parameter_crop(4,	1,	9,	0.000,	0);
-        parameter_crop pc58 = new parameter_crop(4,	1,	10,	0.000,	0);
-        parameter_crop pc59 = new parameter_crop(4,	1,	11,	0.000,	0);
-        parameter_crop pc60 = new parameter_crop(4,	1,	12,	0.000,	0);
-        parameter_crop pc61 = new parameter_crop(2,	10,	1,	14.440,	0);
-        parameter_crop pc62 = new parameter_crop(2,	10,	2,	1.297,	0);
-        parameter_crop pc63 = new parameter_crop(2,	10,	3,	9.817,	0);
-        parameter_crop pc64 = new parameter_crop(2,	10,	4,	1.500,	0);
-        parameter_crop pc65 = new parameter_crop(2,	10,	5,	0.875,	0);
-        parameter_crop pc66 = new parameter_crop(2,	10,	6,	3.200,	0);
-        parameter_crop pc67 = new parameter_crop(2,	10,	7,	0.100,	0);
-        parameter_crop pc68 = new parameter_crop(2,	10,	8,	0.030,	0);
-        parameter_crop pc69 = new parameter_crop(2,	10,	9,	0.055,	0);
-        parameter_crop pc70 = new parameter_crop(2,	10,	10,	0.250,	0);
-        parameter_crop pc71 = new parameter_crop(2,	10,	11,	0.008,	0);
-        parameter_crop pc72 = new parameter_crop(2,	10,	12,	0.004,	0);
-        parameter_crop pc73 = new parameter_crop(1,	15,	1,	4.375,	0);
-        parameter_crop pc74 = new parameter_crop(1,	15,	2,	0.324,	0);
-        parameter_crop pc75 = new parameter_crop(1,	15,	3,	5.447,	0);
-        parameter_crop pc76 = new parameter_crop(1,	15,	4,	0.571,	0);
-        parameter_crop pc77 = new parameter_crop(1,	15,	5,	0.25,	0);
-        parameter_crop pc78 = new parameter_crop(1,	15,	6,	0.5,	0);
-        parameter_crop pc79 = new parameter_crop(1,	15,	7,	0,	0);
-        parameter_crop pc80 = new parameter_crop(1,	15,	8,	0,	0);
-        parameter_crop pc81 = new parameter_crop(1,	15,	9,	0,	0);
-        parameter_crop pc82 = new parameter_crop(1,	15,	10,	0,	0);
-        parameter_crop pc83 = new parameter_crop(1,	15,	11,	0,	0);
-        parameter_crop pc84 = new parameter_crop(1,	15,	12,	0,	0);
+        parameter_crop pc1 = new parameter_crop(8,	8,	1,	2.408,	0.000, 0);
+        parameter_crop pc2 = new parameter_crop(8,	8,	2,	0.193,	0.000, 0);
+        parameter_crop pc3 = new parameter_crop(8,	8,	3,	2.639,	0.000, 0);
+        parameter_crop pc4 = new parameter_crop(8,	8,	4,	0.429,	0.000, 0);
+        parameter_crop pc5 = new parameter_crop(8,	8,	5,	0.188,	0.000, 0);
+        parameter_crop pc6 = new parameter_crop(8,	8,	6,	0.000,	0.000, 0);
+        parameter_crop pc7 = new parameter_crop(8,	8,	7,	0.000,	0.000, 0);
+        parameter_crop pc8 = new parameter_crop(8,	8,	8,	0.000,	0.000, 0);
+        parameter_crop pc9 = new parameter_crop(8,	8,	9,	0.000,	0.000, 0);
+        parameter_crop pc10 = new parameter_crop(8,	8,	10,	0.000,	0.000, 0);
+        parameter_crop pc11 = new parameter_crop(8,	8,	11,	0.000,	0.000, 0);
+        parameter_crop pc12 = new parameter_crop(8,	8,	12,	0.000,	0.000, 0);
+        parameter_crop pc13 = new parameter_crop(6,	2,	1,	62.510,	157.500, 0);
+        parameter_crop pc14 = new parameter_crop(6,	2,	2,	2.958,	4.258, 0);
+        parameter_crop pc15 = new parameter_crop(6,	2,	3,	28.955,	83.333, 0);
+        parameter_crop pc16 = new parameter_crop(6,	2,	4,	0.000,	38.571, 0);
+        parameter_crop pc17 = new parameter_crop(6,	2,	5,	0.000,	25.313, 0);
+        parameter_crop pc18 = new parameter_crop(6,	2,	6,	10.420,	6.750, 0);
+        parameter_crop pc19 = new parameter_crop(6,	2,	7,	0.000,	2.000, 0);
+        parameter_crop pc20 = new parameter_crop(6,	2,	8,	0.000,	2.000, 0);
+        parameter_crop pc21 = new parameter_crop(6,	2,	9,	0.000,	0.750, 0);
+        parameter_crop pc22 = new parameter_crop(6,	2,	10,	0.000,	2.000, 0);
+        parameter_crop pc23 = new parameter_crop(6,	2,	11,	0.000,	1.000, 0);
+        parameter_crop pc24 = new parameter_crop(6,	2,	12,	0.000,	0.000, 0);
+        parameter_crop pc25 = new parameter_crop(6,	3,	1,	24.300,	157.500, 0);
+        parameter_crop pc26 = new parameter_crop(6,	3,	2,	2.958,	4.258, 0);
+        parameter_crop pc27 = new parameter_crop(6,	3,	3,	28.955,	83.333, 0);
+        parameter_crop pc28 = new parameter_crop(6,	3,	4,	0.000,	38.571, 0);
+        parameter_crop pc29 = new parameter_crop(6,	3,	5,	0.000,	25.313, 0);
+        parameter_crop pc30 = new parameter_crop(6,	3,	6,	5.210,	6.750, 0);
+        parameter_crop pc31 = new parameter_crop(6,	3,	7,	0.000,	2.000, 0);
+        parameter_crop pc32 = new parameter_crop(6,	3,	8,	0.000,	2.000, 0);
+        parameter_crop pc33 = new parameter_crop(6,	3,	9,	0.000,	0.750, 0);
+        parameter_crop pc34 = new parameter_crop(6,	3,	10,	0.000,	2.000, 0);
+        parameter_crop pc35 = new parameter_crop(6,	3,	11,	0.000,	1.000, 0);
+        parameter_crop pc36 = new parameter_crop(6,	3,	12,	0.000,	0.000, 0);
+        parameter_crop pc37 = new parameter_crop(7,	7,	1,	93.60,	0, 0);
+        parameter_crop pc38 = new parameter_crop(7,	7,	2,	8.65,	0, 0);
+        parameter_crop pc39 = new parameter_crop(7,	7,	3,	68.75,	0, 0);
+        parameter_crop pc40 = new parameter_crop(7,	7,	4,	0,	0, 0);
+        parameter_crop pc41 = new parameter_crop(7,	7,	5,	0,	0, 0);
+        parameter_crop pc42 = new parameter_crop(7,	7,	6,	0,	0, 0);
+        parameter_crop pc43 = new parameter_crop(7,	7,	7,	0,	0, 0);
+        parameter_crop pc44 = new parameter_crop(7,	7,	8,	0.000,	0, 0);
+        parameter_crop pc45 = new parameter_crop(7,	7,	9,	0.000,	0, 0);
+        parameter_crop pc46 = new parameter_crop(7,	7,	10,	0.000,	0, 0);
+        parameter_crop pc47 = new parameter_crop(7,	7,	11,	0.000,	0, 0);
+        parameter_crop pc48 = new parameter_crop(7,	7,	12,	0.000,	0, 0);
+        parameter_crop pc49 = new parameter_crop(4,	1,	1,	9.450,	32, 0);
+        parameter_crop pc50 = new parameter_crop(4,	1,	2,	0.550,	2.10, 0);
+        parameter_crop pc51 = new parameter_crop(4,	1,	3,	7.000,	23.33, 0);
+        parameter_crop pc52 = new parameter_crop(4,	1,	4,	0.000,	0, 0);
+        parameter_crop pc53 = new parameter_crop(4,	1,	5,	0.000,	0, 0);
+        parameter_crop pc54 = new parameter_crop(4,	1,	6,	0.000,	0, 0);
+        parameter_crop pc55 = new parameter_crop(4,	1,	7,	0.000,	0, 0);
+        parameter_crop pc56 = new parameter_crop(4,	1,	8,	0.000,	0, 0);
+        parameter_crop pc57 = new parameter_crop(4,	1,	9,	0.000,	0, 0);
+        parameter_crop pc58 = new parameter_crop(4,	1,	10,	0.000,	0, 0);
+        parameter_crop pc59 = new parameter_crop(4,	1,	11,	0.000,	0, 0);
+        parameter_crop pc60 = new parameter_crop(4,	1,	12,	0.000,	0, 0);
+        parameter_crop pc61 = new parameter_crop(2,	10,	1,	14.440,	0, 0);
+        parameter_crop pc62 = new parameter_crop(2,	10,	2,	1.297,	0, 0);
+        parameter_crop pc63 = new parameter_crop(2,	10,	3,	9.817,	0, 0);
+        parameter_crop pc64 = new parameter_crop(2,	10,	4,	1.500,	0, 0);
+        parameter_crop pc65 = new parameter_crop(2,	10,	5,	0.875,	0, 0);
+        parameter_crop pc66 = new parameter_crop(2,	10,	6,	3.200,	0, 0);
+        parameter_crop pc67 = new parameter_crop(2,	10,	7,	0.100,	0, 0);
+        parameter_crop pc68 = new parameter_crop(2,	10,	8,	0.030,	0, 0);
+        parameter_crop pc69 = new parameter_crop(2,	10,	9,	0.055,	0, 0);
+        parameter_crop pc70 = new parameter_crop(2,	10,	10,	0.250,	0, 0);
+        parameter_crop pc71 = new parameter_crop(2,	10,	11,	0.008,	0, 0);
+        parameter_crop pc72 = new parameter_crop(2,	10,	12,	0.004,	0, 0);
+        parameter_crop pc73 = new parameter_crop(1,	15,	1,	4.375,	0, 0);
+        parameter_crop pc74 = new parameter_crop(1,	15,	2,	0.324,	0, 0);
+        parameter_crop pc75 = new parameter_crop(1,	15,	3,	5.447,	0, 0);
+        parameter_crop pc76 = new parameter_crop(1,	15,	4,	0.571,	0, 0);
+        parameter_crop pc77 = new parameter_crop(1,	15,	5,	0.25,	0, 0);
+        parameter_crop pc78 = new parameter_crop(1,	15,	6,	0.5,	0, 0);
+        parameter_crop pc79 = new parameter_crop(1,	15,	7,	0,	0, 0);
+        parameter_crop pc80 = new parameter_crop(1,	15,	8,	0,	0, 0);
+        parameter_crop pc81 = new parameter_crop(1,	15,	9,	0,	0, 0);
+        parameter_crop pc82 = new parameter_crop(1,	15,	10,	0,	0, 0);
+        parameter_crop pc83 = new parameter_crop(1,	15,	11,	0,	0, 0);
+        parameter_crop pc84 = new parameter_crop(1,	15,	12,	0,	0, 0);
         List<parameter_crop> parameter_crops = new ArrayList<>();
         parameter_crops.add(pc1);
         parameter_crops.add(pc2);

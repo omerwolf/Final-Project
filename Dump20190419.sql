@@ -321,6 +321,30 @@ INSERT INTO `fertilization method` VALUES (1,'Soil Application'),(2,'Band Applic
 UNLOCK TABLES;
 
 --
+-- Table structure for table `fertilization_method_efficiency`
+--
+
+DROP TABLE IF EXISTS `fertilization_method_efficiency`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `fertilization_method_efficiency` (
+  `fert_method_efficiency_id` int(11) NOT NULL,
+  `parameter_id` int(11) NOT NULL,
+  `fert_method_efficiency` decimal(3,2) NOT NULL,
+  PRIMARY KEY (`fert_method_efficiency_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fertilization_method_efficiency`
+--
+
+LOCK TABLES `fertilization_method_efficiency` WRITE;
+/*!40000 ALTER TABLE `fertilization_method_efficiency` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fertilization_method_efficiency` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `groups`
 --
 
@@ -462,7 +486,7 @@ CREATE TABLE `irrigation_method` (
   `irrigation_method_efficiency` decimal(3,2) NOT NULL,
   `irrigation_method_wetted_area` decimal(3,2) NOT NULL,
   PRIMARY KEY (`irrigation_method_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -471,7 +495,7 @@ CREATE TABLE `irrigation_method` (
 
 LOCK TABLES `irrigation_method` WRITE;
 /*!40000 ALTER TABLE `irrigation_method` DISABLE KEYS */;
-INSERT INTO `irrigation_method` VALUES (6,'Drip',0.90,0.50),(7,'SDI',0.90,0.50),(8,'Sprinklers',0.75,1.00),(9,'Pivot',0.80,1.00),(10,'Flooding',0.60,1.00);
+INSERT INTO `irrigation_method` VALUES (1,'Drip',0.90,0.50),(2,'SDI',0.90,0.50),(3,'Sprinklers',0.75,1.00),(4,'Pivot',0.80,1.00),(5,'Flooding',0.60,1.00);
 /*!40000 ALTER TABLE `irrigation_method` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -662,8 +686,9 @@ CREATE TABLE `parameter_crop` (
   `parameter_id` int(11) NOT NULL,
   `amount` decimal(10,0) DEFAULT NULL,
   `base_line` decimal(10,0) DEFAULT '0',
+  `amount2` decimal(10,0) DEFAULT NULL,
   `active` bit(1) DEFAULT b'1',
-  `is_active` bit(1) NOT NULL,
+  `is_active` bit(1) DEFAULT NULL,
   `user_insert` varchar(20) DEFAULT NULL,
   `date_insert` datetime DEFAULT NULL,
   `user_update` varchar(20) DEFAULT NULL,
@@ -678,6 +703,7 @@ CREATE TABLE `parameter_crop` (
 
 LOCK TABLES `parameter_crop` WRITE;
 /*!40000 ALTER TABLE `parameter_crop` DISABLE KEYS */;
+INSERT INTO `parameter_crop` VALUES (1,8,8,1,2,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(2,8,8,2,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(3,8,8,3,3,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(4,8,8,4,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(5,8,8,5,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(6,8,8,6,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(7,8,8,7,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(8,8,8,8,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(9,8,8,9,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(10,8,8,10,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(11,8,8,11,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(12,8,8,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(13,6,2,1,63,158,0,_binary '',NULL,NULL,NULL,NULL,NULL),(14,6,2,2,3,4,0,_binary '',NULL,NULL,NULL,NULL,NULL),(15,6,2,3,29,83,0,_binary '',NULL,NULL,NULL,NULL,NULL),(16,6,2,4,0,39,0,_binary '',NULL,NULL,NULL,NULL,NULL),(17,6,2,5,0,25,0,_binary '',NULL,NULL,NULL,NULL,NULL),(18,6,2,6,10,7,0,_binary '',NULL,NULL,NULL,NULL,NULL),(19,6,2,7,0,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(20,6,2,8,0,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(21,6,2,9,0,1,0,_binary '',NULL,NULL,NULL,NULL,NULL),(22,6,2,10,0,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(23,6,2,11,0,1,0,_binary '',NULL,NULL,NULL,NULL,NULL),(24,6,2,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(25,6,3,1,24,158,0,_binary '',NULL,NULL,NULL,NULL,NULL),(26,6,3,2,3,4,0,_binary '',NULL,NULL,NULL,NULL,NULL),(27,6,3,3,29,83,0,_binary '',NULL,NULL,NULL,NULL,NULL),(28,6,3,4,0,39,0,_binary '',NULL,NULL,NULL,NULL,NULL),(29,6,3,5,0,25,0,_binary '',NULL,NULL,NULL,NULL,NULL),(30,6,3,6,5,7,0,_binary '',NULL,NULL,NULL,NULL,NULL),(31,6,3,7,0,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(32,6,3,8,0,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(33,6,3,9,0,1,0,_binary '',NULL,NULL,NULL,NULL,NULL),(34,6,3,10,0,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(35,6,3,11,0,1,0,_binary '',NULL,NULL,NULL,NULL,NULL),(36,6,3,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(37,7,7,1,94,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(38,7,7,2,9,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(39,7,7,3,69,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(40,7,7,4,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(41,7,7,5,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(42,7,7,6,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(43,7,7,7,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(44,7,7,8,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(45,7,7,9,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(46,7,7,10,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(47,7,7,11,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(48,7,7,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(49,4,1,1,9,32,0,_binary '',NULL,NULL,NULL,NULL,NULL),(50,4,1,2,1,2,0,_binary '',NULL,NULL,NULL,NULL,NULL),(51,4,1,3,7,23,0,_binary '',NULL,NULL,NULL,NULL,NULL),(52,4,1,4,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(53,4,1,5,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(54,4,1,6,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(55,4,1,7,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(56,4,1,8,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(57,4,1,9,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(58,4,1,10,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(59,4,1,11,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(60,4,1,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(61,2,10,1,14,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(62,2,10,2,1,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(63,2,10,3,10,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(64,2,10,4,2,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(65,2,10,5,1,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(66,2,10,6,3,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(67,2,10,7,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(68,2,10,8,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(69,2,10,9,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(70,2,10,10,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(71,2,10,11,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(72,2,10,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(73,1,15,1,4,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(74,1,15,2,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(75,1,15,3,5,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(76,1,15,4,1,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(77,1,15,5,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(78,1,15,6,1,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(79,1,15,7,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(80,1,15,8,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(81,1,15,9,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(82,1,15,10,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(83,1,15,11,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL),(84,1,15,12,0,0,0,_binary '',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `parameter_crop` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -693,7 +719,7 @@ CREATE TABLE `parameter_per_stage` (
   `param_per_crop_id` int(11) NOT NULL,
   `variety_id` int(11) NOT NULL,
   `phenological stage_id` int(11) DEFAULT NULL,
-  `percent` decimal(2,0) DEFAULT NULL,
+  `percent` decimal(2,2) DEFAULT NULL,
   `is_active` bit(1) DEFAULT NULL,
   `user_insert` varchar(20) DEFAULT NULL,
   `date_insert` datetime DEFAULT NULL,
@@ -1664,4 +1690,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-18 21:49:38
+-- Dump completed on 2019-04-19 15:23:47
