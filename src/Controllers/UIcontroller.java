@@ -111,7 +111,6 @@ public class UIcontroller implements Initializable{
                         selectedpreviousCropNCredit,selectedIrrigationMethod,selectedIrrigationVolume,
                         selectedFertilizationMethod,selectedBaseDressing,selectedSoilPH);
                 instructionsTF.setText("Thank you !");
-                int i = 5;
 
             }
         };

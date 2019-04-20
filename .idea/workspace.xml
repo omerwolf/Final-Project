@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eec0095e-bd02-48d2-b275-501c94de720f" name="Default" comment="Added several tables.">
+    <list default="true" id="eec0095e-bd02-48d2-b275-501c94de720f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dump20190418.sql" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/DB/Dao/CropDao.class" afterPath="$PROJECT_DIR$/out/production/java/DB/Dao/CropDao.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/DB/DaoImpl/CropDaoImpl.class" afterPath="$PROJECT_DIR$/out/production/java/DB/DaoImpl/CropDaoImpl.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/DB/Entites/Crop.class" afterPath="$PROJECT_DIR$/out/production/java/DB/Entites/Crop.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/DB/Util/ConnectionConfiguration.class" afterPath="$PROJECT_DIR$/out/production/java/DB/Util/ConnectionConfiguration.class" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Entites/Crop.java" afterPath="$PROJECT_DIR$/src/DB/Entites/Crop.java" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Entites/IrrigationMethod.java" afterPath="$PROJECT_DIR$/src/DB/Entites/IrrigationMethod.java" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Entites/Soil.java" afterPath="$PROJECT_DIR$/src/DB/Entites/Soil.java" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Entites/fertilization_method.java" afterPath="$PROJECT_DIR$/src/DB/Entites/fertilization_method.java" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Entites/variety_type.java" afterPath="$PROJECT_DIR$/src/DB/Entites/variety_type.java" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Main.java" afterPath="$PROJECT_DIR$/src/DB/MainDB.java" />
-      <change beforePath="$PROJECT_DIR$/src/DB/Util/ConnectionConfiguration.java" afterPath="$PROJECT_DIR$/src/DB/Util/ConnectionConfiguration.java" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/UIcontroller.java" afterPath="$PROJECT_DIR$/src/Controllers/UIcontroller.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,8 +76,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -97,7 +86,7 @@
       <file leaf-file-name="MainDB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DB/MainDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2314">
+            <state relative-caret-position="2671">
               <caret line="215" column="10" lean-forward="false" selection-start-line="215" selection-start-column="10" selection-end-line="215" selection-end-column="10" />
               <folding />
             </state>
@@ -138,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controllers/UIcontroller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <caret line="112" column="54" lean-forward="false" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -238,6 +227,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -340,23 +330,6 @@
             <path>
               <item name="java" type="b2602c69:ProjectViewProjectNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -561,7 +534,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554986963110</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finish the UIController.">
+      <created>1555720006877</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1555720006877</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Finish the UIController.">
+      <created>1555720350325</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1555720350325</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -569,6 +556,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -578,17 +566,17 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36214605" sideWeight="0.20644216" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.7935578" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935917" sideWeight="0.7935578" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35916543" sideWeight="0.48828697" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23792094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23792094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935917" sideWeight="0.48828697" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.48828697" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -656,7 +644,8 @@
     <MESSAGE value="Soil add new functions - selectAll" />
     <MESSAGE value="Soil  - finish !" />
     <MESSAGE value="Added several tables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added several tables." />
+    <MESSAGE value="Finish the UIController." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish the UIController." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -810,6 +799,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -838,6 +828,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,7 +1064,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DB/MainDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2314">
+        <state relative-caret-position="2671">
           <caret line="215" column="10" lean-forward="false" selection-start-line="215" selection-start-column="10" selection-end-line="215" selection-end-column="10" />
           <folding />
         </state>
@@ -1091,14 +1084,6 @@
             <element signature="e#856#857#0" expanded="true" />
             <element signature="e#912#913#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,10 +1127,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/UIcontroller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <caret line="112" column="54" lean-forward="false" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
