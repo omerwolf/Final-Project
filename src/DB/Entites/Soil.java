@@ -39,6 +39,24 @@ public class Soil {
         this.defualtBulkDensity = defualtBulkDensity;
     }
 
+    public Soil(Soil s) {
+        this.id = s.getId();
+        this.name = s.getName();
+        this.nPrecent = s.getnPrecent();
+        this.pPrecent = s.getpPrecent();
+        this.kPrecent = s.getkPrecent();
+        this.somDecompHigh = s.getSomDecompHigh();
+        this.somDecompModerate = s.getSomDecompModerate();
+        this.somDecompLow = s.getSomDecompLow();
+        this.baseDressingStrategy = s.getBaseDressingStrategy();
+        this.rainEffect = s.getRainEffect();
+        this.defualtCEC = s.getDefualtCEC();
+        this.lowerCEC = s.getLowerCEC();
+        this.upperCEC = s.getUpperCEC();
+        this.defualtBulkDensity = s.getDefualtBulkDensity();
+    }
+
+
     public int getId() {
         return id;
     }

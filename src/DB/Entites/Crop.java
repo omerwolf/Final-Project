@@ -14,6 +14,11 @@ public class Crop {
         this.crop_group_id = crop_group_id;
     }
 
+    public Crop(Crop c) {
+        this.name = c.getName();
+        this.id = c.getId();
+    }
+
     public int getId() {
         return id;
     }

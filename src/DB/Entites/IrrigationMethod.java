@@ -16,6 +16,13 @@ public class IrrigationMethod {
         this.irrigation_method_wetted_area = irrigation_method_wetted_area;
     }
 
+    public IrrigationMethod(IrrigationMethod im) {
+        this.irrigation_method_id = im.getIrrigation_method_id();
+        this.irrigation_method_desc = im.getIrrigation_method_desc();
+        this.irrigation_method_efficiency = im.getIrrigation_method_efficiency();
+        this.irrigation_method_wetted_area = im.getIrrigation_method_wetted_area();
+    }
+
     public int getIrrigation_method_id() {
         return irrigation_method_id;
     }

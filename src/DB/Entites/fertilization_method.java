@@ -12,7 +12,10 @@ public class fertilization_method {
         this.fert_method_id = fert_method_id;
         this.fert_method_desc = fert_method_desc;
     }
-
+    public fertilization_method(fertilization_method fm) {
+        this.fert_method_id = fm.getFert_method_id();
+        this.fert_method_desc = fm.getFert_method_desc();
+    }
     public int getFert_method_id() {
         return fert_method_id;
     }

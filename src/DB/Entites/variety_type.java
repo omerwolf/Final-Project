@@ -11,6 +11,11 @@ public class variety_type {
         this.variety_id = variety_id;
         this.variety_name = variety_name;
     }
+    public variety_type(variety_type vt) {
+        this.variety_id = vt.getVariety_id();
+        this.variety_name = vt.getVariety_name();
+
+    }
 
     public int getVariety_id() {
         return variety_id;

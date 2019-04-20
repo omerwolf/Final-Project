@@ -1,31 +1,7 @@
 package DB;
 
-import DB.Dao.CropDao;
-import DB.Dao.SoilDao;
-import DB.Dao.data_typesDao;
-import DB.Dao.variety_typeDao;
-import DB.Dao.pheonological_stageDao;
-import DB.Dao.parameter_cropDao;
-import DB.Dao.fertilization_methodDao;
-import DB.Dao.elementsDao;
-import DB.Dao.parametersDao;
-import DB.Dao.layer_depth_typeDao;
-import DB.Dao.CropGroupDao;
-import DB.Dao.PreviousCropNCreditDao;
-import DB.Dao.IrrigationMethodDao;
-import DB.DaoImpl.CropDaoImpl;
-import DB.DaoImpl.SoilDaoImpl;
-import DB.DaoImpl.data_typesDaoImpl;
-import DB.DaoImpl.variety_typeDaoImpl;
-import DB.DaoImpl.pheonological_stageDaoImpl;
-import DB.DaoImpl.parameter_cropDaoImpl;
-import DB.DaoImpl.fertilization_methodDaoImpl;
-import DB.DaoImpl.elementsDaoImpl;
-import DB.DaoImpl.parametersDaoImpl;
-import DB.DaoImpl.layer_depth_typeDaoImpl;
-import DB.DaoImpl.CropGroupDaoImpl;
-import DB.DaoImpl.PreviousCropNCreditDaoImpl;
-import DB.DaoImpl.IrrigationMethodDaoImpl;
+import DB.Dao.*;
+import DB.DaoImpl.*;
 import DB.Entites.Crop;
 import DB.Entites.Soil;
 import DB.Entites.data_types;
@@ -47,7 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class MainDB {
 
     public static void main(String[] args) {
         //data_typesDao cdi = new data_typesDaoImpl();
@@ -238,18 +214,22 @@ public class Main {
 
         //irrigation method testing
         //IrrigationMethodDao irrigationMethodDao = new IrrigationMethodDaoImpl();
-        //irrigationMethodDao.autoInsertAll();
+
         /*List<IrrigationMethod> listIrr = irrigationMethodDao.selectAll();
         for (IrrigationMethod im: listIrr) {
             System.out.println(im.getIrrigation_method_desc());
         }
         IrrigationMethod im1 = irrigationMethodDao.selectById(3);
         System.out.println("im1 desc is: " +im1.getIrrigation_method_desc());*/
-        /*for (int i=1;i<=5;i++) {
-            irrigationMethodDao.delete(i);
-        }*/
+        //for (int i=6;i<=10;i++) {
+        //   irrigationMethodDao.delete(i);
+        //}
+        //irrigationMethodDao.autoInsertAll();
         //IrrigationMethod im2 = irrigationMethodDao.selectById(2);
         //irrigationMethodDao.update(im2,5);
+
+        //crop_expected_yield_validationDao ceyv = new crop_expected_yield_validationDaoImpl();
+        //ceyv.autoInsertAll();
 
     }
     }
