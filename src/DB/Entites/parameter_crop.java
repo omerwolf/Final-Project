@@ -7,18 +7,20 @@ public class parameter_crop {
     private int parameter_id;
     private double amount;
     private double base_line;
+    private double amount2;
 
     public parameter_crop(){
 
     }
 
-    public parameter_crop(int crop_id, int variety_id, int parameter_id, double amount, double base_line) {
+    public parameter_crop(int crop_id, int variety_id, int parameter_id, double amount, double base_line, double amount2) {
         this.param_per_crop_id = 0;
         this.crop_id = crop_id;
         this.variety_id = variety_id;
         this.parameter_id = parameter_id;
         this.amount = amount;
         this.base_line = base_line;
+        this.amount2 = amount2;
     }
 
     public int getParam_per_crop_id() {
@@ -67,5 +69,13 @@ public class parameter_crop {
 
     public void setBase_line(double base_line) {
         this.base_line = base_line;
+    }
+
+    public double getAmount2() {
+        return amount2;
+    }
+
+    public void setAmount2(double amount2) {
+        this.amount2 = amount2;
     }
 }
